@@ -1,0 +1,54 @@
+#
+# Device Tree Control
+#
+CONFIG_OF_EMBED=y
+
+#
+# Device Drivers
+#
+
+#
+# Generic Driver Options
+#
+CONFIG_OF_TRANSLATE_ZERO_SIZE_CELLS=y
+
+#
+# Graphics support
+#
+CONFIG_DM_VIDEO=y
+CONFIG_BACKLIGHT_PWM=y
+CONFIG_SYS_WHITE_ON_BLACK=y
+CONFIG_AM335X_LCD=y
+
+
+#
+# Clock
+#
+CONFIG_CLK=y
+CONFIG_CLK_CCF=y
+CONFIG_CLK_TI_AM3_DPLL=y
+CONFIG_CLK_TI_CTRL=y
+CONFIG_CLK_TI_DIVIDER=y
+CONFIG_CLK_TI_GATE=y
+CONFIG_CLK_TI_MUX=y
+
+#
+# Multifunction device drivers
+#
+CONFIG_TI_OMAP4_CM=y
+
+#
+# Power Domain Support
+#
+CONFIG_DM_PMIC=y
+CONFIG_PMIC_CHILDREN=y
+CONFIG_DM_REGULATOR=y
+CONFIG_REGULATOR_PWM=y
+CONFIG_DM_REGULATOR_PBIAS=y
+CONFIG_DM_PWM=y
+CONFIG_PWM_TI_EHRPWM=y
+
+#
+# PowerPC and LayerScape SPL Boot options
+#
+CONFIG_SPL_ALLOC_BD=y
