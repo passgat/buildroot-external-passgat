@@ -1,0 +1,32 @@
+From 7345497d539c74b598ff36dd5d1f548623551079 Mon Sep 17 00:00:00 2001
+From: Dario Binacchi <dariobin@libero.it>
+Date: Mon, 18 Jan 2021 22:13:48 +0100
+Subject: [PATCH 1/2] core: uclass: fix uclass_find_next_free_seq
+
+With commit a133e2179a ("dm: core: Update uclass_find_next_free_req_seq() for new scheme")
+this code must be removed to boot from mmc.
+
+Signed-off-by: Dario Binacchi <dariobin@libero.it>
+---
+ drivers/core/uclass.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/drivers/core/uclass.c b/drivers/core/uclass.c
+index f38122d54b..3ef2db2e12 100644
+--- a/drivers/core/uclass.c
++++ b/drivers/core/uclass.c
+@@ -290,11 +290,6 @@ int uclass_find_next_free_seq(struct uclass *uc)
+ 	struct udevice *dev;
+ 	int max = -1;
+ 
+-	/* If using aliases, start with the highest alias value */
+-	if (CONFIG_IS_ENABLED(DM_SEQ_ALIAS) &&
+-	    (uc->uc_drv->flags & DM_UC_FLAG_SEQ_ALIAS))
+-		max = dev_read_alias_highest_id(uc->uc_drv->name);
+-
+ 	/* Avoid conflict with existing devices */
+ 	list_for_each_entry(dev, &uc->dev_head, uclass_node) {
+ 		if (dev->seq_ > max)
+-- 
+2.17.1
+
