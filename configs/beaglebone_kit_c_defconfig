@@ -1,7 +1,7 @@
 BR2_arm=y
 BR2_cortex_a8=y
 BR2_CCACHE=y
-BR2_PACKAGE_OVERRIDE_FILE="$(BR2_EXTERNAL_PASSGAT_PATH)/board/cq-robot/beaglebone-kit-c/local.mk"
+BR2_PACKAGE_OVERRIDE_FILE=""
 BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_PASSGAT_PATH)/board/cq-robot/beaglebone-kit-c/patches"
 BR2_TOOLCHAIN_BUILDROOT_WCHAR=y
 BR2_TARGET_GENERIC_HOSTNAME="passgat"
